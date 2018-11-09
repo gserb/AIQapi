@@ -10,6 +10,7 @@ global.fetch = require('node-fetch');
 const fs = require('fs');
 
 var tweets = [
+    "I hate ING bank NL with their unsustainable attitude towards environment and tons of papers but still no access to my ebank two weeks now!!",
     "Can't resist it? Enjoy it bankers! So, HSBC and ING bank reliance Industries executed their first blockchain based finance transaction. A huge time cut for transactions from 7-10 days to under 24hrs.",
     "HSBC India and ING news Bank Brussels successfully executed a blockchain enabled, live trade finance transaction",
     "ETTelecom | HSBC, ING Bank execute blockchain transaction with Reliance Industries",
@@ -22,7 +23,7 @@ var tweets = [
     "Please reconsider advertising with skynews with their blatantly bigoted content. I may reconsider my choice of bank if they support such views. Thank you ",
     ];
 
-var txt  = "From 10 days to one: India conducts first blockchain cross-border trade: HSBC and ING Bank Brussels have been behind the first cross-border trade transaction using blockchain in India. Could this be just a taste of things to come?"
+var txt  = "Dutch bank ING is replacing 5,800 people with machines, at a cost of $2 billion "
 
 async function createModel()
 {
@@ -117,19 +118,17 @@ async function init()
     input = input.expandDims(0)
     pred = model.predict(input)
     pred.print()
-
+    console.log(txt);
     return pred.dataSync()[0];
 }
 
 word_index = undefined
 init()
 
-var i = -1;
+
 app.get('/api/sentiment', function(req, res) {
 
-  i=i+1
-  txt = tweets[i];
-  console.log(i);
+  txt = tweets[Math.floor(Math.random() * tweets.length)];
 
   init().then(function(result) {
     res.setHeader('Access-Control-Allow-Origin','*');
