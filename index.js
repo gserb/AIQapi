@@ -1,13 +1,15 @@
 const tf = require('@tensorflow/tfjs');
 require('@tensorflow/tfjs-node');
 
+global.fetch = require('node-fetch');
 const fs = require('fs');
 const txt  = "Non-major bank ING has cut its fixed rates on investment loans by up to 36 basis points while lifting its fixed rates for owner-occupied";
 
 
 async function createModel()
 {
-  const model = await tf.loadModel('file:///Users/ul14nw/Public/hackathonAIQ/model.json')
+    // const model = await tf.loadModel('file:///Users/ul14nw/Public/hackathonAIQ/model.json');
+  const model = await tf.loadModel('https://raw.githubusercontent.com/gserb/AIQapi/master/model.json');
   return model
 }
 
