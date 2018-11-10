@@ -10,7 +10,6 @@ global.fetch = require('node-fetch');
 const fs = require('fs');
 
 var tweets = [
-    "I hate ING bank NL with their unsustainable attitude towards environment and tons of papers but still no access to my ebank two weeks now!!",
     "Can't resist it? Enjoy it bankers! So, HSBC and ING bank reliance Industries executed their first blockchain based finance transaction. A huge time cut for transactions from 7-10 days to under 24hrs.",
     "HSBC India and ING news Bank Brussels successfully executed a blockchain enabled, live trade finance transaction",
     "ETTelecom | HSBC, ING Bank execute blockchain transaction with Reliance Industries",
